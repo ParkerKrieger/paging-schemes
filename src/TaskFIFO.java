@@ -17,13 +17,16 @@ public class TaskFIFO implements Runnable {
     @Override
     public void run() {
         Queue<Integer> memory = new LinkedList<>();
+        boolean[] pageTable = new boolean[this.MAX_PAGE_REFERENCE + 1];
         int pageFaults = 0;
         for (int value : sequence) {
-            if (!memory.contains(value)){
+            if (!pageTable[value]){
                 if (memory.size() >= this.MAX_MEMORY_FRAMES + 1){
-                    memory.remove();
+                    int removed = memory.remove();
+                    pageTable[removed] = false;
                 }
                 memory.add(value);
+                pageTable[value] = true;
                 pageFaults++;
             }
         }

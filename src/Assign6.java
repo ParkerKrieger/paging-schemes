@@ -67,7 +67,7 @@ public class Assign6 {
                 }
             }
         }
-        System.out.printf("\t Anomaly detected %d times with a max difference of %d\n", count, max);
+        System.out.printf("\t Anomaly detected %d times with a max difference of %d\n\n", count, max);
     }
 
     public static void report (int[][] fifo, int[][] mru, int[][] lru){
