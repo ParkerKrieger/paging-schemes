@@ -1,12 +1,22 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * This class implements the Runnable interface to simulate a FIFO page replacement algorithm.
+ * @author Parker Krieger
+ */
 public class TaskFIFO implements Runnable {
     private int[] sequence;
     private final int MAX_MEMORY_FRAMES;
     private final int MAX_PAGE_REFERENCE;
     private int[] pageFaults;
 
+    /**
+     * @param sequence The sequence of page numbers
+     * @param maxMemoryFrames The maximum number of frames in memory
+     * @param maxPageReference Greatest possible page number
+     * @param pageFaults An array to store the number of page faults
+     */
     public TaskFIFO (int[] sequence, int maxMemoryFrames, int maxPageReference, int[] pageFaults){
         this.sequence = sequence;
         this.MAX_MEMORY_FRAMES = maxMemoryFrames;
@@ -14,6 +24,10 @@ public class TaskFIFO implements Runnable {
         this.pageFaults = pageFaults;
     }
 
+    /**
+     * This method will simulate a FIFO page replacement scheme.
+     * This method outputs its results in the pageFaults array.
+     */
     @Override
     public void run() {
         Queue<Integer> memory = new LinkedList<>();

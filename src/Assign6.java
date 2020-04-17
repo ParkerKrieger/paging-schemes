@@ -2,6 +2,9 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author Parker Krieger
+ */
 public class Assign6 {
 
     static final int SIMULATIONS = 1000;
@@ -9,6 +12,10 @@ public class Assign6 {
     static final int MAX_PAGE_REFERENCE = 250;
     static final int SEQUENCE_SIZE = 1000;
 
+    /**
+     * This method is a driver to simulate all three page replacement algorithms and compare their results
+     * @param args Command line arguments, not relevant for this program
+     */
     public static void main(String[] args) {
 
         try {
@@ -49,6 +56,10 @@ public class Assign6 {
         }
     }
 
+    /**
+     * This method tests for the presence of Belady's anomaly.
+     * @param data Array of page faults to compare
+     */
     public static void belady (int[][] data){
         int count = 0;
         int max = 0;
@@ -70,6 +81,12 @@ public class Assign6 {
         System.out.printf("\t Anomaly detected %d times with a max difference of %d\n\n", count, max);
     }
 
+    /**
+     * This method reports the data from the three page replacement algorithms.
+     * @param fifo Page faults from the fifo algorithm
+     * @param mru Page faults from the mru algorithm
+     * @param lru Page faults from the lru algorithm
+     */
     public static void report (int[][] fifo, int[][] mru, int[][] lru){
         int fifoCount = 0;
         int mruCount = 0;
